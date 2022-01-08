@@ -7,8 +7,8 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 
 contract LipToken is ERC721, Ownable {
     uint256 COUNTER;
-
-     struct Lip {
+    uint256 fee = 1 ether;
+    struct Lip {
           string name;
           uint256 id;
           uint256 dna;
@@ -16,7 +16,7 @@ contract LipToken is ERC721, Ownable {
           uint8 rarity;
      }
 
-     Lip[] public lips;
+    Lip[] public lips;
 
     event NewLip(address owner, uint256 id, uint256 dna);
 
@@ -28,6 +28,11 @@ contract LipToken is ERC721, Ownable {
         uint256 randomNum = uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender)));
         return randomNum % _mod;
     }   
+
+
+    function updateFee(uint256 _fee) external onlyOwner(){
+        fee = _fee;
+    }
 
     // Creation
     function _creteLip(string memory _name) internal{
@@ -43,9 +48,15 @@ contract LipToken is ERC721, Ownable {
         COUNTER++;
     }
 
-   
+    function withdraw() external payable onlyOwner(){
+        address payable _owner = payable(owner());
+        _owner.transfer(address(this).balance);
+    } 
 
-    function createRandomLip(string memory _name) public {
+    function createRandomLip(string memory _name) public payable{
+        // require is like an if condition
+        // msg.value hold what user sent to the SC
+        require(msg.value == fee, "User doesn't have enough fee");
         _creteLip(_name);
     }
 

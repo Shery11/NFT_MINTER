@@ -187,7 +187,7 @@
 				],
 				"name": "createRandomLip",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -519,6 +519,26 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					}
+				],
+				"name": "updateFee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -598,10 +618,10 @@
 	},
 	"sources": {
 		"contracts/LipToken.sol": {
-			"keccak256": "0x08d3b8eb23e6cb2209c613c785e2dd9c8118d4682f2a0c8688ef86d20a647b91",
+			"keccak256": "0x717f693277ef8c52443372ebfc643eaa0bc47df7149ad9d1cf0e64157a6a7f20",
 			"urls": [
-				"bzz-raw://1b8f6ad049721f68e09de3f55bd5883a18604fe601bf86729a4a0d0b2f4a3276",
-				"dweb:/ipfs/QmRFZdcAvWMwAjY88S1w4FCGRrfcVXMT4y9p3Qwqn81pfW"
+				"bzz-raw://9b7a8a55dc258f5c019930f47469e8ce3cbfc52986407fb468cd687f75172efb",
+				"dweb:/ipfs/QmXLnjprGeg6mzJzwtXriqh7DWK2obEj4uHUHmdj8wKLZs"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {
