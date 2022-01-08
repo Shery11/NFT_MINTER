@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -69,6 +69,31 @@
 					}
 				],
 				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dna",
+						"type": "uint256"
+					}
+				],
+				"name": "NewLip",
 				"type": "event"
 			},
 			{
@@ -155,6 +180,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "createRandomLip",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
@@ -166,6 +204,46 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLips",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dna",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "level",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint8",
+								"name": "rarity",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct LipToken.Lip[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -198,14 +276,40 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
-				"name": "mintMyNft",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "lips",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dna",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "level",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "rarity",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -481,7 +585,7 @@
 		"compilationTarget": {
 			"contracts/LipToken.sol": "LipToken"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -494,10 +598,10 @@
 	},
 	"sources": {
 		"contracts/LipToken.sol": {
-			"keccak256": "0x7da6462de9edd42a1eaf3a877b5e4dc7a54f7fb8e629ddaa0e58bc37b3a6d6ad",
+			"keccak256": "0x08d3b8eb23e6cb2209c613c785e2dd9c8118d4682f2a0c8688ef86d20a647b91",
 			"urls": [
-				"bzz-raw://ada1aff9dea59945ec2da8ca712a355d3d02e79377883d6dd3a7e064455588c3",
-				"dweb:/ipfs/QmdyiUFUgDgyJaM7vf4GvdSP6E2d9QhVbiyGkKgDDJhayt"
+				"bzz-raw://1b8f6ad049721f68e09de3f55bd5883a18604fe601bf86729a4a0d0b2f4a3276",
+				"dweb:/ipfs/QmRFZdcAvWMwAjY88S1w4FCGRrfcVXMT4y9p3Qwqn81pfW"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {
